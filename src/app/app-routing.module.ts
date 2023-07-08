@@ -6,10 +6,10 @@ import { AboutComponent } from '../../src/app/about/about.component';
 import { HeaderComponent } from '../app/header/header.component';
 
 
-  const routes: Routes = [
-    { path: 'Acasa', 
-    component: AcasaComponent 
-  },
+const routes: Routes = [
+  { path: '',  
+  component:AcasaComponent
+ },
 
     { path: 'Profil', 
     component: ProfilComponent
