@@ -9,6 +9,9 @@ import { PaginaHTMLComponent } from './pagina-html/pagina-html.component';
 
 
 const routes: Routes = [
+  { path: '', 
+  redirectTo: 'Acasa', 
+  pathMatch: 'full' },
   { path: 'Acasa',  
   component:AcasaComponent
  },
