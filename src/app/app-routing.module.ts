@@ -4,10 +4,12 @@ import { AcasaComponent } from '../app/acasa/acasa.component';
 import { ProfilComponent } from '../app/profil/profil.component';
 import { AboutComponent } from '../../src/app/about/about.component';
 import { HeaderComponent } from '../app/header/header.component';
+import { PaginaHTMLComponent } from './pagina-html/pagina-html.component';
+
 
 
 const routes: Routes = [
-  { path: '',  
+  { path: 'Acasa',  
   component:AcasaComponent
  },
 
@@ -21,7 +23,12 @@ const routes: Routes = [
     {
       component: HeaderComponent,
       path: 'Header'
-    }
+    },
+    { path: 'acasa',  
+    component:AcasaComponent
+   },
+   { path: 'pagina-html', 
+   component: PaginaHTMLComponent },
 
   ];
 

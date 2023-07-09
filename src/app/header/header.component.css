@@ -91,9 +91,9 @@ section {
 }
 
 span.gradient {
-  background: #f857a8;
-  background: -webkit-linear-gradient(45deg, #f857a8, #ff5858);
-  background: linear-gradient(45deg, #f857a8, #ff5858);
+  background: #add8e6;
+  background: -webkit-linear-gradient(45deg, #add8e6, #add8e6);
+  background: linear-gradient(45deg, #add8e6, #add8e6);
   padding: 0 1em;
   position: relative;
   right: 1em;
@@ -129,7 +129,7 @@ h1.logo a:visited {
 a,
 a:visited {
   text-decoration: none;
-  color: #f857a8;
+  color: #add8e6;
 }
 
 a:hover {
@@ -143,7 +143,7 @@ a:hover {
 }
 
 .btn-nav {
-  color: #f857a8;
+  color: #add8e6;
   padding-left: 2em;
   padding-right: 2em;
 }
@@ -178,13 +178,13 @@ a:hover {
   .nav a,
   .nav a:visited {
     text-decoration: none;
-    color: #f857a8;
+    color: #add8e6;
   }
 
   .nav a.active {
-    background: #f857a8;
-    background: -webkit-linear-gradient(45deg, #f857a8, #ff5858);
-    background: linear-gradient(45deg, #f857a8, #ff5858);
+    background: #add8e6;
+    background: -webkit-linear-gradient(45deg, #add8e6, #add8e6);
+    background: linear-gradient(45deg, #add8e6, #add8e6);
     color: #fff;
   }
 
