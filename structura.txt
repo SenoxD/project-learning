@@ -1,0 +1,27 @@
+//
+Ce avem nevoie sa adaugam: 
+  - Conectarea la baza de date de unde o sa extragem detalii in fiecare componenta
+ 
+  - Pagina de profil care sa includa o autentificare sigura in baza de date cu
+   badge uri si progress tracking, progress bar
+
+  - interactive Code Editor: incorporam un code editor in aplicatie in care poti
+    coda in real time HTML / CSS / JAVASCRIPT ( CodeMirror or Ace Editor)
+
+  - in acasa.components vreau un hero image deasura de cuprins, codul cu
+   introducerea sa fie dat mai in stanga si in partea din dreapta un formular in care
+   cineva isi baga detaliile si o sa fie contactat telefonic sau prin mail cu oferta 
+   scolii de invatare cu preturi si ce te invata
+
+  - Componenta pentru fiecare h1 pe care l-am adaugat in continut, acolo o sa extragem
+  date pentru fiecare 
+
+  - Sectiunea About - cineva sa creeze sectiunea de about in care vorbeste de  informatii
+  cum ar fi misiunea noastra, ce invatam aici, ce oportunitati ne aduce si sa fie 
+  cat mai interactiva, poze cu instructorii si fiecare ce a facut si a invatat
+
+  - Pagina de Log In / Register conenctate cu baza de date
+
+  - Ne trebuie organizare mai multa la componente
+
+  - Nu stiu daca avem nevoie, dar putem introduce bara de search 
