@@ -18,12 +18,16 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .my-section {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/smth.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 #pagina-html {
@@ -41,6 +45,9 @@ body {
   counter-reset: my-counter;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* Optional gap between columns */
 }
 
 .numbered-list li {

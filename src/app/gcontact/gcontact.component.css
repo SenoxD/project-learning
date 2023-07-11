@@ -1,0 +1,18 @@
+.container{
+    background-color:#f5f5f5;
+    width:7%;
+    position:absolute;
+    top:20%;
+    left:60%;
+}
+.container1{
+    background-color:#f5f5f5;
+    width:fit-content;
+    position:absolute;
+    top:20%;
+    left:27%;
+}
+#email{
+    padding:1%;
+    width:fit-content;
+}

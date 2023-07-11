@@ -12,6 +12,7 @@ export class AcasaComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     const h1Element = document.getElementById('pagina-html');
+    let imagine="C:\Users\valce\Desktop\angular\project-learning\src\assets\smth.jpg"
     if (h1Element) {
       h1Element.addEventListener('click', () => {
         this.navigateToPaginaHTML();

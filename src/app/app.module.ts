@@ -8,6 +8,7 @@ import { AcasaComponent } from './acasa/acasa.component';
 import { ProfilComponent } from './profil/profil.component';
 import { HeaderComponent } from './header/header.component';
 import { PaginaHTMLComponent } from './pagina-html/pagina-html.component';
+import { GcontactComponent } from './gcontact/gcontact.component';
 
 
 
@@ -19,6 +20,7 @@ import { PaginaHTMLComponent } from './pagina-html/pagina-html.component';
     ProfilComponent,
     HeaderComponent,
     PaginaHTMLComponent,
+    GcontactComponent,
 
 
   ],
