@@ -6,8 +6,8 @@ import { AboutComponent } from '../../src/app/about/about.component';
 import { HeaderComponent } from '../app/header/header.component';
 import { PaginaHTMLComponent } from './pagina-html/pagina-html.component';
 import { GcontactComponent } from './gcontact/gcontact.component';
-
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', 
@@ -35,6 +35,12 @@ const routes: Routes = [
    component: PaginaHTMLComponent },
    {  path:'gcontact',
    component:GcontactComponent},
+   {
+    path:'login', component:LoginComponent
+   },
+   {
+    path:'register', component:RegisterComponent
+   }
 
   ];
 

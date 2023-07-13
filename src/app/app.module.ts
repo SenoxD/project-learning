@@ -9,7 +9,9 @@ import { ProfilComponent } from './profil/profil.component';
 import { HeaderComponent } from './header/header.component';
 import { PaginaHTMLComponent } from './pagina-html/pagina-html.component';
 import { GcontactComponent } from './gcontact/gcontact.component';
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,12 +23,16 @@ import { GcontactComponent } from './gcontact/gcontact.component';
     HeaderComponent,
     PaginaHTMLComponent,
     GcontactComponent,
+    LoginComponent,
+    RegisterComponent,
 
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
