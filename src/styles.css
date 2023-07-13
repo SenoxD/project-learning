@@ -5,3 +5,17 @@
 #F5853F - bej deschis
 #FFCDBC - bej spre roz
 */
+
+body{
+    background: #fff;
+    color: #080808;
+  
+  }
+
+  *{
+    margin:0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+  }
+  

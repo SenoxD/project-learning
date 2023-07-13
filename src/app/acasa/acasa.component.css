@@ -1,119 +1,57 @@
-/*Color pallete
-#130303 - maro inchis
-#2D080A - maro inchis mai deschis
-#7C3626 - bej 
-#F5853F - bej deschis
-#FFCDBC - bej spre roz
-*/
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-/*-------------Reset-------------*/
-button,
-input {
-  background: none;
-  border: none;
-  box-shadow: none;
-  cursor: pointer;
-  outline: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/*-------------Layout-------------*/
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-.my-section {
+  font-family: "Space Mono", monospace;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  flex-direction: column;
+  max-width: 420px;
+  padding: 32px;
+  margin: 60px auto;
+  border: 1px solid #eee;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+* {
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  letter-spacing: -0.25px;
+}
+
+ol {
+  padding-left: 50px;
+}
+li {
+  color: #4f4f4f;
+  padding-left: 16px;
+  margin-top: 24px;
   position: relative;
-}
-
-#pagina-html {
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  padding: 50px;
-  width: fit-content; 
-  margin: 0 auto; 
-  text-align: center;
-}
-
-.numbered-list {
-  list-style-type: none;
-  counter-reset: my-counter;
-  padding: 0;
-  margin: 0;
-
-}
-
-.numbered-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.numbered-list li .number {
-  font-weight: bold;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: #add8e6; /* Baby Blue */
-  color: #fff;
-  border-radius: 50%;
-  margin-right: 10px;
+  font-size: 16px;
   line-height: 20px;
-  text-align: center;
 }
 
-h1 {
-  font-size: 24px;
-  color: #333;
-  margin: 0;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  overflow: hidden; 
-  display: inline-block; 
-  position: relative; 
+li:before {
+  content: "";
+  display: block;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  position: absolute; 
+  top: -12px;
+  left: -46px;
 }
 
-h1::before {
-    content: '';
-    position: absolute;
-    bottom: 0; 
-    left: 0;
-    width: 0; 
-    height: 3px; 
-    background-color: #add8e6; 
-    transition: width 0.3s ease; 
-  }
-  
-  h1:hover::before {
-    width: 100%; 
-  }
-  
-  h1:hover {
-    color: #000; 
-  }
+strong {
+  color: #292929;
+}
 
-@media screen and (max-width: 768px) {
-  #pagina-html {
-    width: 90%;
+ol.alternating-colors {
+  li:nth-child(odd):before {
+    border-color: #0bad02;
   }
-
-  h1 {
-    font-size: 20px;
+  li:nth-child(even):before {
+    border-color: #2378d5;
   }
 }
