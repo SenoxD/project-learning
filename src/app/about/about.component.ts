@@ -1,4 +1,10 @@
-import { Component, HostListener, Renderer2 } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Renderer2,
+  Inject,
+  ElementRef,
+} from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,20 +12,39 @@ import { Component, HostListener, Renderer2 } from '@angular/core';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent {
-  constructor(private renderer: Renderer2) {}
+  private scrollStarted = false;
+
+  constructor(
+    private renderer: Renderer2,
+    @Inject(ElementRef) private elementRef: ElementRef
+  ) {}
 
   @HostListener('window:scroll', [])
   onScroll(): void {
     console.log('Scroll event triggered');
-    const scrollHeight = document.body.scrollHeight;
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    // Calculate the middle position of the page
-    const middlePosition = scrollHeight / 2;
+    const aboutElement =
+      this.elementRef.nativeElement.querySelector('.about-page');
+    const aboutHeight = aboutElement.offsetHeight;
+    const windowHeight = window.innerHeight;
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-    // If scroll position is beyond the middle, scroll to the bottom
-    if (scrollTop > middlePosition) {
-      window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
+    if (
+      !this.scrollStarted &&
+      scrollPosition + windowHeight >= aboutHeight / 2
+    ) {
+      this.scrollStarted = true;
+      this.startAutomaticScroll();
     }
+  }
+
+  private startAutomaticScroll(): void {
+    const scrollHeight = document.body.scrollHeight;
+    window.scrollTo({ top: scrollHeight, behavior: 'smooth' });
+
+    setTimeout(() => {
+      // Reset the scroll flag to repeat the behavior
+      this.scrollStarted = false;
+    }, 1000);
   }
 }
