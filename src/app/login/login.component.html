@@ -1,21 +1,23 @@
-<div id="header-wrapper"><app-header></app-header></div>
+  <app-header></app-header>
+<div id="header-wrapper">
+
+</div>
 
 <div id="content">
+  <h2>Login</h2>
+  <router-outlet></router-outlet>
+  <form [formGroup]="form" (submit)="submit()">
+    <div class="form-field">
+      <input formControlName="email" type="email" id="input2" placeholder="Email" name="email" required>
+      <label for="input2">Email</label>
+    </div>
 
+    <div class="form-field">
+      <input formControlName="password" type="password" id="input3" placeholder="Password" name="password" required>
+      <label for="input3">Password</label>
+    </div>
 
-<form >
-  <div class="form-field">
-    <input type="text" id="input1" placeholder="email" formControlName="email">
-    <label for="input1"></label>
-  </div>
-
-  <div class="form-field">
-    <input type="text" id="input2" name="input2" placeholder="password" formControlName="password">
-    <label for="input2"></label>
-  </div>
-
-  <button class="btn" type="submit">Submit</button>
-
-</form>
-
+    <button class="btn" type="submit">Login</button>
+    <button class="btn" type="button" routerLink="/register">Create an Account</button>
+  </form>
 </div>
