@@ -11,6 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownListComponent } from './dropdown-list/dropdown-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HtmlIncepatoriComponent } from './html-incepatori/html-incepatori.component';
+
+
 
 @NgModule({
   declarations: [
@@ -21,6 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     PaginaHTMLComponent,
     LoginComponent,
     RegisterComponent,
+    DropdownListComponent,
+    HtmlIncepatoriComponent,
+    
 
 
   ],
@@ -29,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
 
   ],
   providers: [],

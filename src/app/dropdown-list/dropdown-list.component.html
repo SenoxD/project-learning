@@ -1,0 +1,12 @@
+<div class="dropdown-list">
+  <ol class="alternating-colors">
+    <li *ngFor="let item of items; let i = index">
+      <strong (click)="toggleDropdown(i)">{{ item.title }}</strong>
+      <ul [class.dropdown-content]="isDropdownVisible[i]">
+        <li *ngFor="let subItem of item.items; let j = index">
+          <a [routerLink]="subItem.route">{{ subItem.label }}</a>
+        </li>
+      </ul>
+    </li>
+  </ol>
+</div>
