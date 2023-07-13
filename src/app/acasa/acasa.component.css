@@ -1,3 +1,11 @@
+/*Color pallete
+#130303 - maro inchis
+#2D080A - maro inchis mai deschis
+#7C3626 - bej 
+#F5853F - bej deschis
+#FFCDBC - bej spre roz
+*/
+
 /*-------------Reset-------------*/
 button,
 input {
@@ -23,7 +31,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/smth.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,8 +42,8 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   padding: 50px;
-  width: fit-content; /* Use fit-content to expand the width to fit the content */
-  margin: 0 auto; /* Center the box horizontally */
+  width: fit-content; 
+  margin: 0 auto; 
   text-align: center;
 }
 
@@ -45,9 +52,7 @@ body {
   counter-reset: my-counter;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px; /* Optional gap between columns */
+
 }
 
 .numbered-list li {

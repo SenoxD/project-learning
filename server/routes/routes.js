@@ -33,9 +33,9 @@ router.post('/register', async (req, res) => {
         const result = await user.save()
 
         //JWT Token
-         const {id} = await result.toJSON()
+        const { _id } = await result.toJSON();
 
-         const token = jwt.sign({_id:_id}, "secret")
+        const token = jwt.sign({ _id: _id }, "secret");
 
          res.cookie("jwt", token, {
             httpOnly:true,
@@ -55,8 +55,30 @@ router.post("/login", async (req, res) => {
     res.send("login user")
 })
 
-router.get('/user', (req, res) => {
-    res.send("user")
-})
+router.get('/user', async (req, res) => {
+    try{
+        const cookie = req.cookies['jwt']
 
-module.exports = router
+        const claims = jwt.verify(cookie, "secret")
+
+        if(!claims){
+            return res.status(401).send({
+                message:"neidentificat"
+            })
+        }
+  
+        const user = await User.findOne({_id:claims._id})
+
+        const {password, ...data} = await user.toJSON()
+        
+        res.send(data)
+
+
+    }catch(err){ 
+      return res.status(401).send({
+        message:"neidentificat"
+      })
+    }
+});
+
+module.exports = router;
