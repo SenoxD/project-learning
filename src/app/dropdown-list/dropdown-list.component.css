@@ -16,6 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
   letter-spacing: -0.25px;
+  cursor: pointer;
 }
 
 .dropdown-list ol {

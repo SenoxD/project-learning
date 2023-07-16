@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Emitters } from '../emitters/emitter';
+import { EmitterVisitorContext } from '@angular/compiler';
 
 @Component({
   selector: 'app-acasa',
@@ -20,9 +22,11 @@ export class AcasaComponent implements AfterViewInit, OnInit  {
     .subscribe(
     (res: any) => {
     this.message = `Bine ai revenit, ${res.name}!`;
+     Emitters.authEmitter.emit(true)
     },
     (err) => {
     this.message = "Nu esti logat!"
+    Emitters.authEmitter.emit(false)
     }
     );
     }

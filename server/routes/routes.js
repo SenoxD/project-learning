@@ -37,14 +37,14 @@ router.post('/register', async (req, res) => {
 
         const token = jwt.sign({ _id: _id }, "secret");
 
-         res.cookie("jwt", token, {
-            httpOnly:true,
-            maxAge:24*60*60*1000
-         })
+        res.cookie("jwt", token, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 1000
+        })
 
 
         res.json({
-            message:"Succes"
+            message: "Succes"
         })
     }
 })
@@ -52,33 +52,64 @@ router.post('/register', async (req, res) => {
 
 
 router.post("/login", async (req, res) => {
-    res.send("login user")
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+        return res.status(404).send({
+            message: "Cont inexistent!",
+        });
+    }
+
+    if (!(await bcrypt.compare(req.body.password, user.password))) {
+        return res.status(400).send({
+            message: "Parola este incorecta",
+        });
+    }
+
+    const token = jwt.sign({ _id: user._id }, "secret")
+
+    res.cookie("jwt", token, {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000 //pentru o zi login
+    })
+
+    res.send({
+        message: "Succes",
+    });
+
 })
 
 router.get('/user', async (req, res) => {
-    try{
+    try {
         const cookie = req.cookies['jwt']
 
         const claims = jwt.verify(cookie, "secret")
 
-        if(!claims){
+        if (!claims) {
             return res.status(401).send({
-                message:"neidentificat"
+                message: "neidentificat"
             })
         }
-  
-        const user = await User.findOne({_id:claims._id})
 
-        const {password, ...data} = await user.toJSON()
-        
+        const user = await User.findOne({ _id: claims._id })
+
+        const { password, ...data } = await user.toJSON()
+
         res.send(data)
 
 
-    }catch(err){ 
-      return res.status(401).send({
-        message:"neidentificat"
-      })
+    } catch (err) {
+        return res.status(401).send({
+            message: "neidentificat"
+        })
     }
+});
+
+router.post('/logout', (req, res) => {
+    res.cookie("jwt", "", { maxAge: 0 })
+    res.send({
+        message: "success"
+    });
 });
 
 module.exports = router;

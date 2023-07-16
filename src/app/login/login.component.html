@@ -1,11 +1,10 @@
-  <app-header></app-header>
+<app-header></app-header>
 <div id="header-wrapper">
 
 </div>
 
 <div id="content">
   <h2>Login</h2>
-  <router-outlet></router-outlet>
   <form [formGroup]="form" (submit)="submit()">
     <div class="form-field">
       <input formControlName="email" type="email" id="input2" placeholder="Email" name="email" required>

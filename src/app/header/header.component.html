@@ -3,11 +3,17 @@
     <a routerLink="/">
       <img class="logo" src="../../assets/mit-academy-logo.png" alt="Logo">
     </a>
-    <div class="menu-toggle"></div>
-    <ul class="menu">
+    <div class="menu-toggle">
+    <ul class="menu" *ngIf="!authenticated">
       <li><a routerLink="/acasa">Home</a></li>
       <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/Profil">Profil</a></li>
+      <li><a routerLink="/register">Register</a></li>
     </ul>
+    <ul class="menu" *ngIf="authenticated">
+      <li><a routerLink="/acasa">Home</a></li>
+      <li><a routerLink="/Profil">Profil</a></li>
+      <li><a routerLink="/login" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
   </nav>
 </body>

@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +12,48 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.buildForm();
-  }
-
-  buildForm(): void {
-    this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+    this.form = this.formBuilder.group({
+      email: '',
+      password: '',
     });
   }
 
+  validateEmail(email: string): boolean {
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return validRegex.test(email);
+  }
+
   submit(): void {
-    if (this.form.valid) {
-      // Handle login logic here
-    }
+    let user = this.form.getRawValue();
+
+    if (user.email === '' || user.password === '') {
+      Swal.fire('Error', 'Toate campurile obligatorii!', 'error');
+
+    }else if(!this.validateEmail(user.email)) {
+        Swal.fire('Error', 'Introduceti o adresa de email valida!', 'error');
+      }
+      
+      else{ 
+      
+        this.http.post("http://localhost:5000/api/login", user, {
+        withCredentials: true
+      })
+
+      .subscribe(
+        (res) => this.router.navigate(['/']),
+        (err) => {
+          Swal.fire('Error', err.error.message, 'error');
+        }
+      );
+      
+
+      }  
   }
 }
